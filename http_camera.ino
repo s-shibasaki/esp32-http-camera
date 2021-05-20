@@ -27,6 +27,8 @@ const char *password = "kWKJDjZFzy";
 #define CAM_PIN_HREF 23
 #define CAM_PIN_PCLK 22
 
+void process_image(size_t, size_t, pixformat_t, uint8_t *, size_t);
+
 static camera_config_t camera_config = {
     .pin_pwdn = CAM_PIN_PWDN,
     .pin_reset = CAM_PIN_RESET,
@@ -77,25 +79,6 @@ esp_err_t camera_init()
 
     return ESP_OK;
 }
-
-void process_image(size_t, size_t, pixformat_t, uint8_t *, size_t);
-
-// esp_err_t camera_capture()
-// {
-//     //acquire a frame
-//     camera_fb_t *fb = esp_camera_fb_get();
-//     if (!fb)
-//     {
-//         ESP_LOGE(TAG, "Camera Capture Failed");
-//         return ESP_FAIL;
-//     }
-//     //replace this with your own function
-//     process_image(fb->width, fb->height, fb->format, fb->buf, fb->len);
-
-//     //return the frame buffer back to the driver for reuse
-//     esp_camera_fb_return(fb);
-//     return ESP_OK;
-// }
 
 typedef struct
 {
@@ -201,7 +184,7 @@ void process_image(size_t width, size_t height, pixformat_t format, uint8_t *buf
 {
 }
 
-void connect_to_wifi()
+void wifi_connect()
 {
     Serial.println();
     Serial.println();
@@ -228,13 +211,10 @@ void setup()
     delay(10);
 
     camera_init();
-
-    connect_to_wifi();
-
+    wifi_connect();
     start_webserver();
 }
 
 void loop()
 {
-    ;
 }
