@@ -5,8 +5,7 @@
 #include <quirc.h>
 
 #include <WiFi.h>
-const char *ssid = "XRJtEgmQsb";
-const char *password = "kWKJDjZFzy";
+#include "wifi_config.h"
 
 //AI-THINKER PIN Map
 #define CAM_PIN_PWDN 32
