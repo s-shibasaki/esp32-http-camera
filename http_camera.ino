@@ -2,8 +2,6 @@
 #include "esp_http_server.h"
 #include "esp_timer.h"
 
-#include <quirc.h>
-
 #include <WiFi.h>
 #include "wifi_config.h"
 
